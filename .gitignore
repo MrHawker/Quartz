@@ -1,2 +1,8 @@
 .env
 .env.*
+.py.env
+.py.env.*
+__pycache__/
+node_modules/
+db.sqlite3
+migrations
