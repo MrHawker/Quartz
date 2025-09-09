@@ -11,6 +11,22 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+from dotenv import load_dotenv
+load_dotenv(BASE_DIR / ".env")  # load server/.env
+
+
+IBM_BASE_URL = os.environ.get("IBM_BASE_URL", "https://quantum.cloud.ibm.com")
+IBM_IAM_URL = os.environ.get("IBM_IAM_URL", "https://iam.cloud.ibm.com/identity/token")
+IBM_CLOUD_API_KEY = os.environ.get("IBM_CLOUD_API_KEY")       
+IBM_QUANTUM_INSTANCE_CRN = os.environ.get("IBM_QUANTUM_INSTANCE_CRN")
+IBM_QUANTUM_BACKEND_URL = os.environ.get("IBM_QUANTUM_BACKEND_URL","https://quantum.cloud.ibm.com/api/v1/backends") 
+# If current token has not expired yet, but is outside of safety margin, then exchange api key for a new bearer token
+IBM_TOKEN_SAFETY_MARGIN = int(os.environ.get("IBM_TOKEN_SAFETY_MARGIN", "360")) 
+IBM_HTTP_TIMEOUT = float(os.environ.get("IBM_HTTP_TIMEOUT", "10"))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
