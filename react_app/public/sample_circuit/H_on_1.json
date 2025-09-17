@@ -1,0 +1,13 @@
+{
+    "number_of_qubits": 1,
+    "qubits_initial_values":[
+        1
+    ],
+    "operations_at_time": 
+        [
+            {
+            "operation": "h",
+            "qubits_affected": [0]
+            }
+        ]
+}
